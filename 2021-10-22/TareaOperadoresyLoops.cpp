@@ -1,32 +1,32 @@
 #include <iostream>
 #include <cmath>
 
-void print_largestdivisor(long long int nmin,long long int nmax);
+void print_largestdivisor(long long nmin,long long nmax);
 
 int main(void)
 {
-  const long long int m = 1;
-  const long long int n = 600851475147;
+  const long m = 2;
+  const long long n = 600851475147;
 
   print_largestdivisor(m,n);
 
   return 0;
 }
 
-void print_largestdivisor(long long int nmin, long long int nmax)
+void print_largestdivisor(long long nmin, long long nmax)
 {
-  long long int dmax = 0;
+  long long dmax = 0;
   
-  for(long long int ii = nmin; ii <= nmax/2; ii++){ //Se optimiza para que el límite superior sea igual al máximo posible divisor de un número (es decir, su mitad).
+  for(long long ii = nmin; ii <= nmax/2; ii++){ //Se optimiza para que el límite superior sea igual al máximo posible divisor de un número (es decir, su mitad).
 
      if(nmax % ii == 0) {
 
-       dmax = ii;
-      
-       //std::cout << ii << "\n";     
+       dmax = nmax/ii;
+       std::cout << "Number = " << nmax << "\n";
+       std::cout << "Largest divisor = " << dmax << "\n";
+       //std::cout << ii << "\n";
+       break;
     }
   }
-  std::cout << "Number = " << nmax << "\n";
-  std::cout << "Largest divisor = " << dmax << "\n";
 }
       
