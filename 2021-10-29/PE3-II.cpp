@@ -3,14 +3,14 @@
 
 bool isprime(long long n);
 long long largestprimedivisor(long long n);
+long long primeaddition(long long n); 
 
 int main(void)
 {
-  const long long N = 600851475143;
-  std::cout << largestprimedivisor(N) << std::endl;
-
+  const long long N = 600851475147;
+  //  std::cout << largestprimedivisor(N) << std::endl;
+  std::cout << primeaddition(N) << std::endl;
   return 0;
-
 }
 
 long long largestprimedivisor(long long n)
@@ -37,6 +37,18 @@ bool isprime(long long n)
 	  isprime = false;
 	  break;
 	}
-      }
-      return isprime;
+  }
+  return isprime;
+}
+
+long long primeaddition(long long n)
+{
+  long long suma = 0;
+  for(long long ii=2; ii<=n; ii++){
+    if(n%ii ==0 && isprime(ii)){
+    suma+=ii;
+    n/=ii;
+    }
+  }
+  return suma;
 }
