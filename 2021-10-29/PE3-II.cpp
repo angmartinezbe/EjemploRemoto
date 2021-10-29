@@ -1,14 +1,15 @@
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 
 bool isprime(long long n);
 long long largestprimedivisor(long long n);
 long long primeaddition(long long n); 
 
-int main(void)
+int main(int argc, char **argv)
 {
-  const long long N = 600851475147;
-  //  std::cout << largestprimedivisor(N) << std::endl;
+  const long long N = std::atoll(argv[1]);
+  std::cout << largestprimedivisor(N) << std::endl;
   std::cout << primeaddition(N) << std::endl;
   return 0;
 }
