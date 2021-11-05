@@ -8,13 +8,14 @@ f'(x,h) = (f(x+h)-f(x))/h
 #include <cmath>
 
 using fptr = double(double);
-using fptrderiv = double(double, double, fptr);
 
 double fun(double x);
 double g(double x);
 double forward(double x, double h, fptr f);
 double central(double x, double h, fptr f);
-double richardson(double x, double h, fptr f, fptrderiv alg);
+
+template <typename typefun, typename typealg>
+double trichardson(double x, double h, typefun f, typealg alg);
 
 int main(int argc, char **argv)
 {
@@ -25,8 +26,8 @@ int main(int argc, char **argv)
     std::cout << h << "\t"
 	      << std::fabs(1 - forward(X, h, fun)/std::cos(X)) << "\t"
 	      << std::fabs(1 - central(X, h, fun)/std::cos(X)) << "\t"
-	      << std::fabs(1 - richardson(X, h, fun, forward)/std::cos(X)) << "\t"
-	      << std::fabs(1 - richardson(X, h, fun, central)/std::cos(X)) << "\n";
+	      << std::fabs(1 - trichardson(X, h, fun, forward)/std::cos(X)) << "\t"
+	      << std::fabs(1 - trichardson(X, h, fun, central)/std::cos(X)) << "\n";
   }
   return 0;
 }
@@ -51,7 +52,8 @@ double central(double x, double h, fptr f)
   return (f(x+h) - f(x-h))/(2*h);
 }
 
-double richardson(double x, double h, fptr f, fptrderiv alg)
+template <typename typefun, typename typealg>
+double trichardson(double x, double h, typefun f, typealg alg)
 {
   double val1 = alg(x, h, f);
   double val2 = alg(x, h/2, f);
