@@ -8,6 +8,7 @@ Implementes several integration methods
 // definition
 using fptr = double(double);
 double fun(double x);
+double g(double x);
 double trapezoid(double a, double b, double h, fptr f);
 double simpson(double a, double b, double h, fptr f);
 template <typename typealg>
@@ -37,6 +38,11 @@ int main(int argc, char **argv)
 double fun(double x)
 {
     return std::sin(x);
+}
+
+double g(double x)
+{
+  return 2*x;
 }
 
 double trapezoid(double a, double b, double h, fptr f)
