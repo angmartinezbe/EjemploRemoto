@@ -13,6 +13,7 @@ int main(int argc, char **argv) {
   const int N = std::atoi(argv[1]); //Esta N es para los casos de prueba 
   const int SEED = std::atoi(argv[2]);
 
+  //Impresión de los N y su respectivo tiempo normalizado por el tiempo de N=4 
   for (int ii = 2; ii <= 9; ++ii){
 
     int N = pow(2, ii);
@@ -35,7 +36,7 @@ int main(int argc, char **argv) {
   }
 
   // Lo siguiente sirve para ver los casos de prueba
-  /* std::vector<double> A(N*N, 0.0), B(N*N, 0.0), C(N*N, 0.0); 
+  /*std::vector<double> A(N*N, 0.0), B(N*N, 0.0), C(N*N, 0.0); 
 
   std::mt19937 gen(SEED);
   std::uniform_real_distribution<> dist(0.,1.);
@@ -46,8 +47,9 @@ int main(int argc, char **argv) {
   auto start = std::chrono::high_resolution_clock::now();
   multiply(A, B, C);
   auto stop = std::chrono::high_resolution_clock::now();
-    
-  std::cout << C[N/2] << "\t";
+
+  std::cout << "Caso de prueba :" << "\n"
+	    << C[N/2] << "\t";
   auto elapsed = std::chrono::duration<double>(stop - start);
   std::cout << elapsed.count() << "\n"; 
   */
@@ -56,6 +58,7 @@ int main(int argc, char **argv) {
   return 0;
 }
 
+//implementación de la multiplicación de matrices 
 void multiply(const std::vector<double> & m1, const std::vector<double> & m2, std::vector<double> & m3)
 {
   const int N = std::sqrt(m1.size());
