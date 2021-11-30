@@ -34,7 +34,8 @@ int main(int argc, char **argv) {
     std::cout << elapsed.count()/1.391e-06 << "\n"; //1.391e-06: Tiempo cuando N=4
   }
 
-  /* std::vector<double> A(N*N, 0.0), B(N*N, 0.0), C(N*N, 0.0); // Esto es para ver los casos de prueba
+  // Lo siguiente sirve para ver los casos de prueba
+  /* std::vector<double> A(N*N, 0.0), B(N*N, 0.0), C(N*N, 0.0); 
 
   std::mt19937 gen(SEED);
   std::uniform_real_distribution<> dist(0.,1.);
