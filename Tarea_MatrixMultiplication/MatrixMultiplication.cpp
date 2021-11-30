@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
   std::cout << C[N/2] << std::endl;
   
   auto elapsed = std::chrono::duration<double>(stop - start);
-  std::cout << elapsed.count() << "\n";
+  std::cout << elapsed.count()/1.401e-06 << "\n"; //1.401e-06 : Tiempo cuando N=4
 
   return 0;
 }
@@ -38,10 +38,10 @@ void multiply(const std::vector<double> & m1, const std::vector<double> & m2, st
   const int N = std::sqrt(m1.size());
   for (int ii = 0; ii < N; ++ii) {
         for (int jj = 0; jj < N; ++jj) {
-	  double  sum = 0.0;
+	  double  mproduct = 0.0;
 	  for (int kk = 0; kk < N; ++kk)
-	    sum += m1[ii*N + kk] * m2[kk*N + jj];
-	  m3[ii*N + jj] = sum;	    
+	    mproduct += m1[ii*N + kk] * m2[kk*N + jj];
+	  m3[ii*N + jj] = mproduct;	    
         }
     }
 }
