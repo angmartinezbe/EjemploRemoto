@@ -29,7 +29,10 @@ int main(int argc, char **argv)
   if(std::any_of(v.begin(), v.end(), [](int i){return i % 7 == 0 && i % 13 == 0;})){
     std::cout << "At least one number is divisible by seven and thirteen\n";
   }
-  
+  else{
+     std::cout << "There is no number divisible by seven and thirteen\n";
+  }
+   
   std::sort(v.begin(), v.end(), std::greater<double>());
   std::for_each(v.begin(), v.begin() + 10,[](int i){std::cout << " " << i;});
   std::cout << "\n" ;
