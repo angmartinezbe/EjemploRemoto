@@ -54,6 +54,7 @@ int main(int argc, char **argv)
   for(auto x : hist){
     fout << x.first << " " << x.second << "\n";
   }
+  fout.close();
  
   return 0;
 }
