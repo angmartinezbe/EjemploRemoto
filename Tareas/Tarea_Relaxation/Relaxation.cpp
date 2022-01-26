@@ -79,8 +79,8 @@ void evolve(Matrix & m)
       if(ii == N-1) continue;
       if(jj == 0) continue;
       if(jj == M-1) continue;
-      if(ii == N/3) continue;
-      if(ii == (2*N)/3) continue;
+      if(ii == N/3 && jj>M/4 && jj<3*M/4) continue;
+      if(ii == (2*N)/3 && jj>M/4 && jj<3*M/4) continue;
       // evolve non boundary
       m[ii*M+jj] = (m[(ii+1)*M + jj] +
                     m[(ii-1)*M + jj] +
