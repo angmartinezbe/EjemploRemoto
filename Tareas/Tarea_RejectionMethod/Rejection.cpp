@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     std::uniform_real_distribution<double> xu(-1.0, 1.0);
     std::uniform_real_distribution<double> yu(0.0, 3.0/4.0);
     std::ofstream fout("datos.txt");
-    for (int ii = 0; ii < SAMPLES; ++ii) {
+    for (int ii = 0; ii < SAMPLES;) {
         double xr = xu(gen);
         double yr = yu(gen);
         if (yr < fun(xr)) {
@@ -30,6 +30,7 @@ int main(int argc, char **argv)
             int bin = int((xr - XMIN)/DX);
             if (0 <= bin && bin < NBINS) {
                 histo[bin]++;
+		++ii;
             }
         }
     }
